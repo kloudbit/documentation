@@ -16,19 +16,21 @@
 
     <body>
         <style type="text/css">
-            body {font-family: 'Roboto', sans-serif;font-size:1.65em;color:#212121;}
+            body {font-family: 'Roboto', sans-serif;font-size:1.65em;color:#212121;letter-spacing:.008em;}
             .band {background-color:#9C27B0;padding:50px 0px;color:#fff;}
             .content {padding:50px 0px;}
             a {cursor:pointer;}
             h1,h2,h3,h4 {font-weight:500;}
             p {font-weight:300;}
-            section {margin-bottom:50px;}
+            section {margin-bottom:40px;}
+            .menu dl a {font-weight:300;}
+
         </style>
 
-        <div class="col-md-9 col-md-offset-1">
+        <div class="col-md-9 col-md-offset-1 header">
             <div class="col-md-5">kloudbit</div>
             <div class="col-md-7">
-                <p class="pull-right">more stuff</p>
+                <p class="pull-right">Go to Dashboard</p>
             </div>
         </div>
 
@@ -40,43 +42,57 @@
 
         <div class="col-md-12 content">
             <div class="container">
-                <div class="col-md-2">
+                <div class="col-md-3 menu">
                     <dl>
                         <dt>Introduction</dt>
                         <dd><a>What is Kloudbit?</a></dd>
                     </dl>
                     <dl>
                         <dt>Getting Started</dt>
+                        <dd><a>Create an Application</a></dd>
+                        <dd><a>User Resource</a></dd>
+                        <dd><a>Add a Resource</a></dd>
                         <dd><a>Introduction</a></dd>
                     </dl>
                 </div>
 
                 <div class="col-md-9">
                     <h2>Introduction</h2>
+
                     <section>
                         <h4>What is Kloudbit?</h4>
                         <p>Kloudbit is a serverless platform designed to help developers build robust web and mobile applications
                         without the hassle of back-end coding and server management.</p>
                     </section>
 
-
                     <h2>Getting Started</h2>
+                    <section>
+                        <p>Kloudbit applications are served by an automatically generated <b>RESTful API</b>.  To create your application, you will start by defining API
+                        resources that represent your business objects.</p>
+                    </section>
+
                     <section>
                         <h4>1. Create an Application</h4>
                         <p>Begin simply by creating an application.</p>
-                        <p>Kloudbit applications are served by a RESTful API.  To create your application, you will start by defining API
-                        resources that represent your business objects.  Kloudbit will then automatically generate POST, GET, PUT
-                        and DELETE methods for your API resource.</p>
-                        <p>All Kloudbit applications come with a User resource by default.</p>
-                        <p></p>
                     </section>
 
                     <section>
-                        <h4>2. Create a Resource</h4>
-                        <p>Begin simply by creating an application. </p>
+                        <h4>2. User Resource</h4>
+                        <p>All Kloudbit applications start with a <b>User resource by default</b>.</p>
                     </section>
 
+                    <section>
+                        <h4>2. Add a Resource</h4>
+                        <p>Add a resource by defining resource and data parameters of various types (string, number, boolean, array and object).</p>
 
+                        <p>Once saved, Kloudbit will <b>automatically generate</b> POST, GET, PUT and DELETE REST endpoints.</p>
+                    </section>
+
+                    <section>
+                        <h4>3. Try It!</h4>
+                        <p>When using your API, your first step is to create a User.</p>
+                        <p></p>
+                    </section>
                 </div>
             </div>
         </div>
