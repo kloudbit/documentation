@@ -10,32 +10,34 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Raleway+Dots" rel="stylesheet">
     </head>
 
 
     <body>
         <style type="text/css">
-            body {font-family: 'Roboto', sans-serif;font-size:1.65em;color:#212121;letter-spacing:.008em;}
-            .band {background-color:#9C27B0;padding:50px 0px;color:#fff;}
+            body {font-family: 'Roboto', sans-serif;font-size:1.65em;color:#212121;letter-spacing:.025em;}
+            .band {background-color:#9C27B0;padding:55px 0px;color:#fff;line-height:4em;}
+            .logo {font-family: 'Raleway Dots', cursive;}
+            .band .logo {font-size:90px;letter-spacing:.03em;}
+            .band .doc {font-size:50px;}
             .content {padding:50px 0px;}
             a {cursor:pointer;}
             h1,h2,h3,h4 {font-weight:400;}
             p {font-weight:300;}
             section {margin-bottom:40px;}
+            .menu {padding:0px;}
             .menu dl dt {font-weight:400;}
             .menu dl a {font-weight:300;}
+            .content .intro {margin-top:0px;}
         </style>
 
-        <div class="col-md-9 col-md-offset-1 header">
-            <div class="col-md-5">kloudbit</div>
-            <div class="col-md-7">
-                <p class="pull-right">Go to Dashboard</p>
-            </div>
-        </div>
+
 
         <div class="col-md-12 band">
             <div class="container">
-                do stuff
+                <div class="logo">kloudbit</div>
+                <div class="doc">Documentation</div>
             </div>
         </div>
 
@@ -60,7 +62,7 @@
                 </div>
 
                 <div class="col-md-9">
-                    <h2>Introduction</h2>
+                    <h2 class="intro">Introduction</h2>
 
                     <section>
                         <h3>What is Kloudbit?</h3>
@@ -98,14 +100,15 @@
                     </section>
 
                     <h2>Using Kloudbit</h2>
+
                     <section>
-                        <p></p>
+                        <p>...</p>
                     </section>
 
                     <section>
                         <h3>User Objects</h3>
                         <p>In most cases, users are the first objects you'll create for any client application.  With Kloudbit, this is done by making an
-                            API call to <b>POST /v1/users.</b><br>
+                            API call to <b>http://app.kloudbit.com/v1/users.</b><br>
                         </p>
 
                         <p>
@@ -138,7 +141,7 @@
                     <section>
                         <h3>Authenticating Users</h3>
                         <p>Users in your application must be authenticated <b>(via Oauth2)</b> before interacting with any of your application resources.
-                            You can authenticate users by making an API call to <b>POST /v1/oauth2/token.</b>
+                            You can authenticate users by making an API call to <b>http://app.kloudbit.com/v1/oauth2/token.</b>
                         </p>
 
                         <p>
@@ -147,6 +150,8 @@
                                 <th>Parameter</th><th>Description</th>
                                 <tr>
                                     <td>Username</td><td>Email Address</td>
+                                </tr>
+                                <tr>
                                     <td>Password</td><td>User Password</td>
                                 </tr>
                             </table>
@@ -164,6 +169,8 @@
                                 {...}
                             </code>
                         </p>
+
+                        <p>This will return a <b>bearer token</b> that you can use to make API calls for any other resource in your Kloudbit API.</p>
                     </section>
                 </div>
             </div>
