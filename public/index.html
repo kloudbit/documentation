@@ -10,7 +10,6 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-
     </head>
 
 
@@ -20,11 +19,11 @@
             .band {background-color:#9C27B0;padding:50px 0px;color:#fff;}
             .content {padding:50px 0px;}
             a {cursor:pointer;}
-            h1,h2,h3,h4 {font-weight:500;}
+            h1,h2,h3,h4 {font-weight:400;}
             p {font-weight:300;}
             section {margin-bottom:40px;}
+            .menu dl dt {font-weight:400;}
             .menu dl a {font-weight:300;}
-
         </style>
 
         <div class="col-md-9 col-md-offset-1 header">
@@ -52,7 +51,11 @@
                         <dd><a>Create an Application</a></dd>
                         <dd><a>User Resource</a></dd>
                         <dd><a>Add a Resource</a></dd>
-                        <dd><a>Introduction</a></dd>
+                    </dl>
+                    <dl>
+                        <dt>Using Kloudbit</dt>
+                        <dd><a>User Objects</a></dd>
+                        <dd><a>Authenticating Users</a></dd>
                     </dl>
                 </div>
 
@@ -60,38 +63,107 @@
                     <h2>Introduction</h2>
 
                     <section>
-                        <h4>What is Kloudbit?</h4>
+                        <h3>What is Kloudbit?</h3>
                         <p>Kloudbit is a serverless platform that helps you <b>build robust applications</b>
                         without the hassle of back-end coding and server management.  Instead, you can focus on making great web and mobile applications. </p>
                     </section>
 
                     <h2>Getting Started</h2>
                     <section>
-                        <p>Kloudbit applications are served by an automatically generated <b>RESTful API</b>.  To create your application, you will start by defining API
+                        <p>Kloudbit applications are served by an automatically generated <b>RESTful API</b>.  To create your application, start by defining API
                         resources that represent your business objects.</p>
                     </section>
 
                     <section>
-                        <h4>1. Create an Application</h4>
+                        <h3>1. Create an Application</h3>
                         <p>Begin simply by creating an application.</p>
                     </section>
 
                     <section>
-                        <h4>2. User Resource</h4>
+                        <h3>2. User Resource</h3>
                         <p>All Kloudbit applications start with a <b>User resource by default</b>.</p>
                     </section>
 
                     <section>
-                        <h4>2. Add a Resource</h4>
+                        <h3>3. Add a Resource</h3>
                         <p>Add a resource by defining resource and data parameters of various types (string, number, boolean, array and object).</p>
 
                         <p>Once saved, Kloudbit will automatically generate POST, GET, PUT and DELETE <b>HTTP endpoints.</b></p>
                     </section>
 
                     <section>
-                        <h4>3. Try It!</h4>
+                        <h3>4. Try It!</h3>
                         <p>Now, your Kloudbit application is ready to accept API calls.</p>
                         <p></p>
+                    </section>
+
+                    <h2>Using Kloudbit</h2>
+                    <section>
+                        <p></p>
+                    </section>
+
+                    <section>
+                        <h3>User Objects</h3>
+                        <p>In most cases, users are the first objects you'll create for any client application.  With Kloudbit, this is done by making an
+                            API call to <b>POST /v1/users.</b><br>
+                        </p>
+
+                        <p>
+                            POST /v1/users
+                            <table class="table">
+                                <th>Parameter</th><th>Description</th><th>Required</th>
+                                <tr>
+                                    <td>Username</td><td>Email Address</td><td>Yes</td>
+                                </tr>
+                                <tr>
+                                    <td>Password</td><td>User Password</td><td>Yes</td>
+                                </tr>
+                            </table>
+
+                        </p>
+
+                        <p>Example:<br>
+                            <code>curl -H "Authorization: Basic [KLOUDBIT_TOKEN]" -H "content-type: application/json" http://app.kloudbit.com/v1/users
+                                --data '{"username":"johndoe@example.com", "password":"passwd"}'
+                            </code>
+
+                            <br><br>
+                            <code>
+                                Response:<br>
+                                {...}
+                            </code>
+                        </p>
+                    </section>
+
+                    <section>
+                        <h3>Authenticating Users</h3>
+                        <p>Users in your application must be authenticated <b>(via Oauth2)</b> before interacting with any of your application resources.
+                            You can authenticate users by making an API call to <b>POST /v1/oauth2/token.</b>
+                        </p>
+
+                        <p>
+                            POST /v1/oauth2/token
+                            <table class="table">
+                                <th>Parameter</th><th>Description</th>
+                                <tr>
+                                    <td>Username</td><td>Email Address</td>
+                                    <td>Password</td><td>User Password</td>
+                                </tr>
+                            </table>
+                        </p>
+
+                        <p>
+                            Example:<br>
+                            <code>curl -H "Authorization Basic [KLOUDBIT_TOKEN]" -H "content-type:application/json" http://app.kloudbit.com/v1/oauth2/token
+                                --data '{"username":"johndoe@example.com", "password":"passwd"}'
+                            </code>
+
+                            <br><br>
+                            <code>
+                                Response:<br>
+                                {...}
+                            </code>
+                        </p>
                     </section>
                 </div>
             </div>
