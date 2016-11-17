@@ -55,25 +55,25 @@
                 <div class="col-md-3 menu">
                     <dl>
                         <dt>Introduction</dt>
-                        <dd><a>What is Kloudbit?</a></dd>
+                        <dd><a href="#whatis">What is Kloudbit?</a></dd>
                     </dl>
                     <dl>
                         <dt>Getting Started</dt>
-                        <dd><a>Create an Application</a></dd>
-                        <dd><a>User Resource</a></dd>
-                        <dd><a>Add a Resource</a></dd>
+                        <dd><a href="#create-an-application">Create an Application</a></dd>
+                        <dd><a href="#user-resource">User Resource</a></dd>
+                        <dd><a href="#add-a-resource">Add a Resource</a></dd>
                     </dl>
                     <dl>
                         <dt>Using Kloudbit</dt>
-                        <dd><a>User Objects</a></dd>
-                        <dd><a>Authenticating Users</a></dd>
+                        <dd><a href="#user-objects">User Objects</a></dd>
+                        <dd><a href="#authenticating-users">Authenticating Users</a></dd>
                     </dl>
                 </div>
 
                 <div class="col-md-9">
                     <h2 class="intro">Introduction</h2>
 
-                    <section>
+                    <section id="whatis">
                         <h3>What is Kloudbit?</h3>
                         <p>Kloudbit is a serverless platform that helps you <b>build robust applications</b>
                         without the hassle of back-end coding and server management.  Instead, you can focus on making great web and mobile applications. </p>
@@ -85,19 +85,19 @@
                         resources that represent your business objects.</p>
                     </section>
 
-                    <section>
+                    <section id="create-an-application">
                         <h3>1. Create an Application</h3>
                         <p>Begin simply by creating an application.</p>
                         <img class="screenshot" src="/images/createapp.png"/>
                     </section>
 
-                    <section>
+                    <section id="user-resource">
                         <h3>2. User Resource</h3>
                         <p>All Kloudbit applications start with a <b>User resource by default</b>.</p>
                         <img class="screenshot" src="/images/userresource.png"/>
                     </section>
 
-                    <section>
+                    <section id="add-a-resource">
                         <h3>3. Add a Resource</h3>
                         <p>Add a resource by defining resource and data parameters of various types (string, number, boolean, array and object).</p>
 
@@ -113,7 +113,7 @@
 
                     <h2>Using Kloudbit</h2>
 
-                    <section>
+                    <section id="user-objects">
                         <h3>User Objects</h3>
                         <p>In most cases, users are the first objects you'll create for any client application.  With Kloudbit, this is done by making an
                             API call to <b>http://app.kloudbit.com/v1/users.</b>  You'll need your <b>KLOUDBIT TOKEN</b>, which you'll find in the dashboard menu.</b><br>
@@ -157,7 +157,7 @@ HTTP/1.1 201 Created
 
                     </section>
 
-                    <section>
+                    <section id="authenticating-users">
                         <h3>Authenticating Users</h3>
                         <p>Users in your application must be authenticated <b>(via <a href="https://oauth.net/2/" target="_blank">Oauth2</a>)</b> before interacting with any of your application resources.
                             You can authenticate users by making an API call to <b>http://app.kloudbit.com/v1/oauth2/token.</b>
