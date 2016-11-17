@@ -7,10 +7,16 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
         <!-- Latest compiled and minified JavaScript -->
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+        <!-- FONTS -->
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Raleway+Dots" rel="stylesheet">
+
+        <!-- highlighter.js -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/atom-one-dark.min.css" />
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
     </head>
 
 
@@ -20,7 +26,7 @@
             .band {background-color:#9C27B0;padding:55px 0px;color:#fff;line-height:4em;}
             .logo {font-family: 'Raleway Dots', cursive;}
             .band .logo {font-size:90px;letter-spacing:.03em;}
-            .band .doc {font-size:50px;}
+            .band .doc {font-size:50px;font-weight:300;letter-spacing:.02em;}
             .content {padding:50px 0px;}
             a {cursor:pointer;}
             h1,h2,h3,h4 {font-weight:400;}
@@ -30,7 +36,8 @@
             .menu dl dt {font-weight:400;}
             .menu dl a {font-weight:300;}
             .content .intro {margin-top:0px;}
-            .screenshot {border:1px solid #ccc;padding:10px;
+            .screenshot {border:2px solid #ccc;padding:10px;}
+            .code {font-size:.85em;padding:10px;}
         </style>
 
 
@@ -112,34 +119,28 @@
                     <section>
                         <h3>User Objects</h3>
                         <p>In most cases, users are the first objects you'll create for any client application.  With Kloudbit, this is done by making an
-                            API call to <b>http://app.kloudbit.com/v1/users.</b><br>
+                            API call to <b>http://app.kloudbit.com/v1/users.</b>  You'll need your <b>KLOUDBIT TOKEN</b>, which you can find in the dashboard.</b><br>
                         </p>
 
                         <p>
-                            POST /v1/users
-                            <table class="table">
-                                <th>Parameter</th><th>Description</th><th>Required</th>
-                                <tr>
-                                    <td>Username</td><td>Email Address</td><td>Yes</td>
-                                </tr>
-                                <tr>
-                                    <td>Password</td><td>User Password</td><td>Yes</td>
-                                </tr>
-                            </table>
+                            Request:
+                            <div class="code http">
+                                POST /v1/users HTTP/1.1<br>
+                                Host: app.kloudbit.com<br>
+                                Authorization: Basic [KLOUDBIT_TOKEN]<br>
+                                Content-type: application/json<br><br>
 
-                        </p>
+                                {"username":"johndoe@example.com","password":"passwd"}
+                            </div>
 
-                        <p>Example:<br>
-                            <code>curl -H "Authorization: Basic [KLOUDBIT_TOKEN]" -H "content-type: application/json" http://app.kloudbit.com/v1/users
-                                --data '{"username":"johndoe@example.com", "password":"passwd"}'
-                            </code>
-
-                            <br><br>
-                            <code>
-                                Response:<br>
+                            <br>
+                            Response:
+                            <div class="code http">
                                 {...}
-                            </code>
+                            </div>
                         </p>
+
+
                     </section>
 
                     <section>
@@ -149,29 +150,21 @@
                         </p>
 
                         <p>
-                            POST /v1/oauth2/token
-                            <table class="table">
-                                <th>Parameter</th><th>Description</th>
-                                <tr>
-                                    <td>Username</td><td>Email Address</td>
-                                </tr>
-                                <tr>
-                                    <td>Password</td><td>User Password</td>
-                                </tr>
-                            </table>
-                        </p>
+                            Request:
+                            <div class="code http">
+                                POST /v1/oauth2/token HTTP/1.1<br>
+                                Host: app.kloudbit.com<br>
+                                Authorization: Basic [KLOUDBIT_TOKEN]<br>
+                                Content-type: application/json<br><br>
 
-                        <p>
-                            Example:<br>
-                            <code>curl -H "Authorization Basic [KLOUDBIT_TOKEN]" -H "content-type:application/json" http://app.kloudbit.com/v1/oauth2/token
-                                --data '{"username":"johndoe@example.com", "password":"passwd"}'
-                            </code>
+                                {"username":"johndoe@example.com","password":"passwd"}
+                            </div>
 
-                            <br><br>
-                            <code>
-                                Response:<br>
+                            <br>
+                            Response:
+                            <div class="code http">
                                 {...}
-                            </code>
+                            </div>
                         </p>
 
                         <p>This will return a <b>bearer token</b> that you can use to make API calls for any other resource in your Kloudbit API.</p>
@@ -179,5 +172,14 @@
                 </div>
             </div>
         </div>
+
+
+        <script>
+            $(document).ready(function(){
+                $('div.code').each(function(i, block) {
+                  hljs.highlightBlock(block);
+                });
+            });
+        </script>
     </body>
 </html>
