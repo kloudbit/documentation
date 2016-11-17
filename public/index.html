@@ -38,7 +38,7 @@
             .content .intro {margin-top:0px;}
             .screenshot {border:2px solid #ccc;padding:10px;}
             .code {font-size:.85em;padding:10px;}
-            .code pre {background-color:inherit;color:inherit;border:none;}
+            pre {background-color:inherit;color:inherit;border:none;}
         </style>
 
 
@@ -120,19 +120,23 @@
                         </p>
 
                         <p>Request:</p>
-                        <div class="code http">
-                            POST /v1/users HTTP/1.1<br>
-                            Host: app.kloudbit.com<br>
-                            Authorization: Basic [KLOUDBIT_TOKEN]<br>
-                            Content-type: application/json<br><br>
+<pre>
+<code class="http">
+POST /v1/users HTTP/1.1
+Host: app.kloudbit.com
+Authorization: Basic [KLOUDBIT_TOKEN]
+Content-type: application/json
 
-                            {"username":"johndoe@example.com","password":"passwd"}
-                        </div>
+{"username":"johndoe@example.com","password":"passwd"}
+</code>
+</pre>
+
 
                         <br>
                         <p>Response:</p>
-                        <div class="code json">
+
 <pre>
+<code class="json">
 HTTP/1.1 201 Created
 {
     "meta": {
@@ -145,8 +149,9 @@ HTTP/1.1 201 Created
         "_id":"20ea08e6251469d7f1ee25e934534f8a0c0470fd"
     }
 }
+</code>
 </pre>
-                        </div>
+
 
 
 
@@ -159,26 +164,31 @@ HTTP/1.1 201 Created
                         </p>
 
                         <p>Request:</p>
-                        <div class="code http">
-                            POST /v1/oauth2/token?username=johndoe@example.com&password=passwd HTTP/1.1<br>
-                            Host: app.kloudbit.com<br>
-                            Authorization: Basic [KLOUDBIT_TOKEN]<br>
-                            Content-type: application/json<br><br>
-                        </div>
+<pre>
+<code class="http">
+POST /v1/oauth2/token?username=johndoe@example.com&password=passwd HTTP/1.1
+Host: app.kloudbit.com
+Authorization: Basic [KLOUDBIT_TOKEN]
+Content-type: application/json<br>
+</code>
+</pre>
+
 
                         <br>
                         <p>Response:</p>
-                        <div class="code json">
+
 <pre>
+<code class="json">
 HTTP/1.1 200 OK
 {
     "_created":"2016-11-17T17:06:19.235Z",
     "access_token":"cf423168d4fc2db422fa4e0a1dcc3c52c1ff8f4f",
     "user_id":"20ea08e6251469d7f1ee25e934534f8a0c0470fd"
 }
+</code>
 </pre>
-                        </div>
 
+                        <br>
                         <p>This will return a <b>bearer token</b> that you can use to make API calls for any other resource in your Kloudbit API.</p>
                     </section>
                 </div>
@@ -187,11 +197,12 @@ HTTP/1.1 200 OK
 
 
         <script>
-            $(document).ready(function(){
+            /*$(document).ready(function(){
                 $('.code').each(function(i, block) {
                   hljs.highlightBlock(block);
                 });
-            });
+            });*/
         </script>
+        <script>hljs.initHighlightingOnLoad();</script>
     </body>
 </html>
