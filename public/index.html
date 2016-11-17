@@ -38,6 +38,7 @@
             .content .intro {margin-top:0px;}
             .screenshot {border:2px solid #ccc;padding:10px;}
             .code {font-size:.85em;padding:10px;}
+            .code pre {background-color:inherit;color:inherit;border:none;}
         </style>
 
 
@@ -106,66 +107,77 @@
 
                     <section>
                         <h3>4. Try It!</h3>
-                        <p>Now, your Kloudbit application is ready to accept API calls.</p>
+                        <p>Now, your Kloudbit application is <b>ready</b> to accept API calls.</p>
                         <p></p>
                     </section>
 
                     <h2>Using Kloudbit</h2>
 
                     <section>
-                        <p>...</p>
-                    </section>
-
-                    <section>
                         <h3>User Objects</h3>
                         <p>In most cases, users are the first objects you'll create for any client application.  With Kloudbit, this is done by making an
-                            API call to <b>http://app.kloudbit.com/v1/users.</b>  You'll need your <b>KLOUDBIT TOKEN</b>, which you can find in the dashboard.</b><br>
+                            API call to <b>http://app.kloudbit.com/v1/users.</b>  You'll need your <b>KLOUDBIT TOKEN</b>, which you'll find in the dashboard menu.</b><br>
                         </p>
 
-                        <p>
-                            Request:
-                            <div class="code http">
-                                POST /v1/users HTTP/1.1<br>
-                                Host: app.kloudbit.com<br>
-                                Authorization: Basic [KLOUDBIT_TOKEN]<br>
-                                Content-type: application/json<br><br>
+                        <p>Request:</p>
+                        <div class="code http">
+                            POST /v1/users HTTP/1.1<br>
+                            Host: app.kloudbit.com<br>
+                            Authorization: Basic [KLOUDBIT_TOKEN]<br>
+                            Content-type: application/json<br><br>
 
-                                {"username":"johndoe@example.com","password":"passwd"}
-                            </div>
+                            {"username":"johndoe@example.com","password":"passwd"}
+                        </div>
 
-                            <br>
-                            Response:
-                            <div class="code http">
-                                {...}
-                            </div>
-                        </p>
+                        <br>
+                        <p>Response:</p>
+                        <div class="code json">
+<pre>
+HTTP/1.1 201 Created
+{
+    "meta": {
+        "_resource":"user",
+        "_created":"2016-11-17T07:06:36.982Z",
+        "_lastModified":"2016-11-17T07:06:36.982Z"
+    },
+    "content": {
+        "username":"johndoe@example.com",
+        "_id":"20ea08e6251469d7f1ee25e934534f8a0c0470fd"
+    }
+}
+</pre>
+                        </div>
+
 
 
                     </section>
 
                     <section>
                         <h3>Authenticating Users</h3>
-                        <p>Users in your application must be authenticated <b>(via Oauth2)</b> before interacting with any of your application resources.
+                        <p>Users in your application must be authenticated <b>(via <a href="https://oauth.net/2/" target="_blank">Oauth2</a>)</b> before interacting with any of your application resources.
                             You can authenticate users by making an API call to <b>http://app.kloudbit.com/v1/oauth2/token.</b>
                         </p>
 
-                        <p>
-                            Request:
-                            <div class="code http">
-                                POST /v1/oauth2/token HTTP/1.1<br>
-                                Host: app.kloudbit.com<br>
-                                Authorization: Basic [KLOUDBIT_TOKEN]<br>
-                                Content-type: application/json<br><br>
+                        <p>Request:</p>
+                        <div class="code http">
+                            POST /v1/oauth2/token?username=johndoe@example.com&password=passwd HTTP/1.1<br>
+                            Host: app.kloudbit.com<br>
+                            Authorization: Basic [KLOUDBIT_TOKEN]<br>
+                            Content-type: application/json<br><br>
+                        </div>
 
-                                {"username":"johndoe@example.com","password":"passwd"}
-                            </div>
-
-                            <br>
-                            Response:
-                            <div class="code http">
-                                {...}
-                            </div>
-                        </p>
+                        <br>
+                        <p>Response:</p>
+                        <div class="code json">
+<pre>
+HTTP/1.1 200 OK
+{
+    "_created":"2016-11-17T17:06:19.235Z",
+    "access_token":"cf423168d4fc2db422fa4e0a1dcc3c52c1ff8f4f",
+    "user_id":"20ea08e6251469d7f1ee25e934534f8a0c0470fd"
+}
+</pre>
+                        </div>
 
                         <p>This will return a <b>bearer token</b> that you can use to make API calls for any other resource in your Kloudbit API.</p>
                     </section>
@@ -176,7 +188,7 @@
 
         <script>
             $(document).ready(function(){
-                $('div.code').each(function(i, block) {
+                $('.code').each(function(i, block) {
                   hljs.highlightBlock(block);
                 });
             });
